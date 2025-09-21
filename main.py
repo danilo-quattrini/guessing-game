@@ -9,9 +9,11 @@ def guess_game(number_to_guess: int):
     while chosen_number != number_to_guess:
         chosen_number = int(input("Guess a number ==> "))
         if chosen_number > number_to_guess: print("Too high")
-        else: print("Too low")
+        elif chosen_number < number_to_guess: print("Too low")
         guess_counter += 1
-    print(f"You Win!!!\nTotal guess: {guess_counter}")
+        if chosen_number == number_to_guess:
+            print(f"You Win!!!\nTotal guess: {guess_counter}")
+            break
 
 min_range, max_range = int(input("Define the min range\n==>")), int(input("Define the max range\n==>"))
 guess_game(define_random_number(min_range, max_range))
