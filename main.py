@@ -27,15 +27,23 @@ def guess_game(number_to_guess: int):
     :return: None
     """
     chosen_number: int = 0
-    guess_counter: int = 0
+    guess_counter: int = 1
     while chosen_number != number_to_guess:
         chosen_number = int(input("Guess a number ==> "))
-        if chosen_number > number_to_guess: print("Too high")
-        elif chosen_number < number_to_guess: print("Too low")
+        if chosen_number > number_to_guess:
+            print("Too high")
+        elif chosen_number < number_to_guess:
+            print("Too low")
+        else:
+            print(f"You Win!!!\nTotal guess: {guess_counter}")
+            break
         guess_counter += 1
         if chosen_number == number_to_guess:
             print(f"You Win!!!\nTotal guess: {guess_counter}")
             break
 
-min_range, max_range = int(input("Define the min range\n==>")), int(input("Define the max range\n==>"))
-guess_game(define_random_number(min_range, max_range))
+try:
+    min_range, max_range = int(input("Define the min range\n==>")), int(input("Define the max range\n==>"))
+    guess_game(define_random_number(min_range, max_range))
+except:
+    print("You should wrote at leats, 2 integers")
