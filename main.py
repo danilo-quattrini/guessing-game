@@ -9,6 +9,8 @@ def define_random_number(min_limiter: int, max_limiter: int) -> int:
     :param max_limiter:
     :return: random number
     """
+    if min_limiter > max_limiter:
+        min_limiter, max_limiter = max_limiter, min_limiter
     return random.randint(min_limiter, max_limiter)
 
 def guess_game(number_to_guess: int):
